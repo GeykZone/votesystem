@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<title>Voting System using PHP</title>
+  	<!-- Tell the browser to be responsive to screen width -->
+  	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  	<!-- Bootstrap 3.3.7 -->
+  	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="../plugins/iCheck/all.css">
+  	<!-- Font Awesome -->
+  	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+  	<!-- Theme style -->
+  	<link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  	<!-- DataTables -->
+    <link rel="stylesheet" href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="../bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- Bootstrap time Picker -->
+    <link rel="stylesheet" href="../plugins/timepicker/bootstrap-timepicker.min.css">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  	<!--[if lt IE 9]>
+  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  	<![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  	<!-- Google Font -->
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  	<style type="text/css">
+      .bold{
+        font-weight:bold;
+      }
+      
+      #candidate_list{
+        margin-top:20px;
+      }
+
+      #candidate_list ul{
+        list-style-type:none;
+      }
+
+      #candidate_list ul li{ 
+        margin:0 30px 30px 0; 
+        vertical-align:top
+      }
+
+      .clist{
+        margin-left: 20px;
+      }
+
+      .cname{
+        font-size: 25px;
+      }
+  	</style>
+
+    <script>
+       $(document).ready(function() {
+      // Function to update the time
+      function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var period = hours >= 12 ? 'PM' : 'AM';
+
+        // Convert to 12-hour format
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+
+        // Add leading zeros if necessary
+        hours = (hours < 10) ? '0' + hours : hours;
+        minutes = (minutes < 10) ? '0' + minutes : minutes;
+        seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+        var timeString = hours + ':' + minutes + ':' + seconds + ' ' + period;
+        $('#time').text(timeString);
+      }
+
+      // Refresh the time every 1 second
+      setInterval(updateTime, 1000);
+    });
+    </script>
+
+</head>
